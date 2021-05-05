@@ -51,7 +51,7 @@ Response Example: `
 }`
 
 
-##### POST /game/start/
+##### POST /game/reset/
 Response Example: `
 {
     "winner_state": "NONE",
