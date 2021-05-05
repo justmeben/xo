@@ -66,9 +66,9 @@ def perform_game_move(game: TicTacToeGame, move_index: int) -> tuple:
                 return winner_state
 
         if enums.PlayerType.NONE.value not in state:
-            return enums.WinnerState.TIE
+            return enums.WinnerState.TIE.value
 
-        return enums.WinnerState.NONE
+        return enums.WinnerState.NONE.value
 
     # Validate game is ongoing
     if game.game_state != enums.GameState.ONGOING.value:
