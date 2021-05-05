@@ -65,7 +65,7 @@ def perform_game_move(game: TicTacToeGame, move_index: int) -> tuple:
                     (state[2] == player_type and is_diag_1):
                 return winner_state
 
-        if not [x for x in state if x == enums.PlayerType.NONE.value]:
+        if enums.PlayerType.NONE.value not in state:
             return enums.WinnerState.TIE
 
         return enums.WinnerState.NONE
