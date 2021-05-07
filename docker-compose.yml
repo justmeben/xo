@@ -1,6 +1,40 @@
 version: "3.3"
 services:
+  apidb:
+    image: postgres
+    environment:
+      - POSTGRES_DB=apidb
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_USER=docker
+    ports:
+      - "5432:5432"
+  authdb:
+    image: postgres
+    environment:
+      - POSTGRES_DB=authdb
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_USER=docker
+    ports:
+      - "5433:5432"
+  auth:
+    depends_on:
+      - authdb
+    build: auth/.
+    ports:
+      - "8002:80"
+    links:
+      - authdb
+    environment:
+      - DATABASE_DNS=authdb
   api:
+    depends_on:
+      - apidb
     build: .
     ports:
       - "80:80"
+    links:
+      - auth
+      - apidb
+    environment:
+      - AUTH_DNS=auth
+      - DATABASE_DNS=apidb

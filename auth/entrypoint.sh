@@ -4,4 +4,4 @@ echo "Installing all dependancies and netcat to make a loop that will save few s
 sleep 5
 
 python manage.py migrate
-gunicorn xo.wsgi:application -w 2 --timeout 300 --access-logfile - --error-logfile - --bind 0.0.0.0:80
+gunicorn auth.wsgi:application -w 2 --timeout 300 --access-logfile - --error-logfile - --bind 0.0.0.0:80

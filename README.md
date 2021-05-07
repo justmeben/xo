@@ -3,7 +3,7 @@ docker-compose up
 
 # APIs and examples
 
-### Auth
+### Auth (port 8002)
 ##### POST /auth/register
 Request: `{
     "username": "",
@@ -31,7 +31,7 @@ Request: `{
     "revoke_token": true
 }`
 
-### Game
+### Game (Standard port 80)
 ##### GET /game/
 Response Example: `
 {

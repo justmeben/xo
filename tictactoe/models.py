@@ -4,7 +4,7 @@ from tictactoe import enums
 
 
 class TicTacToeGame(models.Model):
-    user = models.ForeignKey(User, null=False, blank=False, on_delete=models.DO_NOTHING)
+    user = models.IntegerField(null=False, blank=False)
     winner_state = models.IntegerField(choices=enums.WinnerState.choices, null=False, blank=False,
                                        default=enums.WinnerState.NONE.value)
     game_state = models.IntegerField(choices=enums.GameState.choices, null=False, blank=False,
